@@ -9,7 +9,7 @@ export const FilterContext = createContext({});
 export const Filter = (props: Props) => {
     const { children } = props;
 
-    const [brand, setBrand] = useState("todos")
+    const [brand, setBrand] = useState("all")
 
     return (
         <FilterContext.Provider value={{brand, setBrand}} >

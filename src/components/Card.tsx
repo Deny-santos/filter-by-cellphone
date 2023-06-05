@@ -17,8 +17,9 @@ const Main = styled.div`
     padding: 5px;
     cursor: pointer;
     justify-content: space-between;
-    background-color: azure;
+    background-color: #000000;
     border-radius: 10px;
+    color: white;
 `
 const Title = styled.div`
     font-size: 22px;

@@ -17,6 +17,7 @@ const Main: any = styled.div`
     gap: 20px;
     padding: 40px;
     flex-wrap: wrap;
+    background-color: #00e8e8;
 `;
 
 const MainContent = (props: Props) => {
@@ -31,7 +32,7 @@ const MainContent = (props: Props) => {
                         <Card brand={cellphone.brand} name={cellphone.name} quantity={cellphone.quantity} prices={cellphone.price} />
                     </div>
                 }
-                if(filterContext.brand == "todos") {
+                if(filterContext.brand == "all") {
                     return <div key={cellphone.name}>
                         <Card brand={cellphone.brand} name={cellphone.name} quantity={cellphone.quantity} prices={cellphone.price} />
                     </div>
@@ -42,25 +43,3 @@ const MainContent = (props: Props) => {
 };
 
 export default MainContent;
-
-
-// {cellphones.filter((cellphone: string) => {
-//     if(cellphone.brand === ) {
-//         <div key={cellphone.name}>
-//             <Card brand={cellphone.brand} name={cellphone.name} quantity={cellphone.quantity} prices={cellphone.price} />
-//         </div>
-//     }
-// })}
-
-// {cellphones
-//     .filter((cellphone) => cellphone.brand === "")
-//     .map((cellphone) => (
-//         <div key={cellphone.name}>
-//             <Card
-//                 brand={cellphone.brand}
-//                 name={cellphone.name}
-//                 quantity={cellphone.quantity}
-//                 prices={cellphone.price}
-//             />
-//         </div>
-//     ))}
