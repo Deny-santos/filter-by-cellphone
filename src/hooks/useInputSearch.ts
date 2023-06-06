@@ -1,43 +1,55 @@
 import { useContext, useState } from "react";
 import useCellphone from "./useCellphone";
 import { FilterTypeContext } from "../context/filterType"
+import { FilterContext } from '../context/Filter';
 
 
 const useInputSearch = () => {
+    
+    const filterContext = useContext(FilterContext)
+    const visibilities = useContext(FilterTypeContext)
+    const { cellphoneName, setCellphoneName } = filterContext
+    const { sugestionVisibility, setSugestionVisibility } = visibilities
 
     const { searchByButton, setSearchByButton } = useCellphone()
-    const visibilities = useContext(FilterTypeContext)
-    const { sugestionVisibility, setSugestionVisibility } = visibilities
 
     const [typing, setTyping] = useState("")
 
     const handleFocus = () => {
-        setSearchByButton(false)
-        console.log(searchByButton)
+        setTimeout(() => {
+
+            console.log(`o search by ${searchByButton}`)
+        },700)
     }
 
     const handleType = () => {
-        // const filtering = (search: string) => brandsAndName.filter((product) => product.includes(search))
-        // setSearchByButton(filtering)
         setSugestionVisibility(true)
 
     }
 
-    const handleA = () => {
-        console.log("oooo")
-        setSugestionVisibility(false)
+    const handleBlur = () => {
+        setTimeout(() => setSugestionVisibility(false), 100 )
+        console.log(`o search by ${searchByButton}`)
+    }
+
+    const handleSelectCellphone = (name: string) => {
+        setSearchByButton(false)
+        setCellphoneName(name)
+        console.log(`o nome é ${name}`)
     }
 
     return {
-        handleA, 
+        handleBlur, 
         handleFocus, 
-        handleType, 
+        handleType,
+        handleSelectCellphone, 
         sugestionVisibility, 
         setSugestionVisibility, 
         searchByButton, 
         setSearchByButton,
         typing,
-        setTyping
+        setTyping,
+        
     }
 }
 

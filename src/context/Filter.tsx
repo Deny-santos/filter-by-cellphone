@@ -11,8 +11,10 @@ export const Filter = (props: Props) => {
 
     const [brand, setBrand] = useState("all")
 
+    const [cellphoneName, setCellphoneName] = useState("all")
+
     return (
-        <FilterContext.Provider value={{brand, setBrand}} >
+        <FilterContext.Provider value={{brand, setBrand, cellphoneName, setCellphoneName }} >
         { children }
         </FilterContext.Provider>
     );

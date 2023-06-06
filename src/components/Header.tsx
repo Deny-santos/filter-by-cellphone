@@ -32,7 +32,7 @@ const Options = styled.div`
 
 const Header = (props: Props) => {
 
-    const { handleFilter, setSugestionVisibility } = useCellphone()
+    const { handleFilter} = useCellphone()
     
 
     return (

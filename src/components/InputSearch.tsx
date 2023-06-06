@@ -1,4 +1,3 @@
-import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { AiOutlineSearch } from "react-icons/ai"
 import { name } from "../util/cellphones"
@@ -73,11 +72,16 @@ const Line = styled.div`
 
 const InputSearch = (props: Props) => {
 
-    const { handleA, handleFocus, handleType, sugestionVisibility, setSugestionVisibility } = useInputSearch()
+    const { handleBlur, 
+        handleFocus, 
+        handleType, 
+        sugestionVisibility, 
+        handleSelectCellphone,
+    } = useInputSearch()
 
     return (
         <Container className=''>
-            <Main onFocus={handleFocus} onClick={handleType} onBlur={() => setTimeout(() => setSugestionVisibility(false), 100 ) }>
+            <Main onFocus={handleFocus} onClick={handleType} onBlur={handleBlur}>
                 <InputContainer>
                     <Input placeholder="o que procura?" onChange={(e) => e.target.value} />
                     <AiOutlineSearch />
@@ -86,7 +90,7 @@ const InputSearch = (props: Props) => {
             {sugestionVisibility ? (
                 <Sugestion>
                     {name.map((el) => (
-                        <Line onClick={handleA}>{el}</Line>
+                        <Line onClick={() => handleSelectCellphone(el)}>{el}</Line>
                     ))}
                 </Sugestion>
             ): ""}

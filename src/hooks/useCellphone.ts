@@ -6,7 +6,7 @@ const useCellphone = () => {
 
     const filterContext = useContext(FilterContext)
     const filterType = useContext(FilterTypeContext)
-    const { setBrand } = filterContext
+    const { setBrand, cellphoneName } = filterContext
     const { setSearchByButton, searchByButton, sugestionVisibility, setSugestionVisibility} = filterType
 
 

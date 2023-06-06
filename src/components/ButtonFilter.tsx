@@ -1,3 +1,4 @@
+import useCellphone from '@/hooks/useCellphone'
 import React from 'react'
 import styled from "styled-components"
 
@@ -20,8 +21,12 @@ const Button = styled.button`
 const ButtonFilter = (props: Props) => {
     const { children = "", handleFilter } = props
 
+    const { setSearchByButton } = useCellphone()
+
     return (
-        <Button onClick={handleFilter}>{children}</Button>
+        <>
+            <Button onClick={handleFilter}>{children}</Button>
+        </>
     )
 }
 
