@@ -1,3 +1,4 @@
+import useCellphone from '@/hooks/useCellphone'
 import React from 'react'
 import styled from "styled-components"
 
@@ -42,8 +43,10 @@ const Span = styled.span`
 const Card = (props: Props) => {
     const { name, prices, brand, quantity } = props
 
+    const { setSugestionVisibility } = useCellphone()
+
     return (
-        <Main>
+        <Main onClick={() => setSugestionVisibility(false)}>
             <Title>{brand} {name}</Title>
             <P>Restam: {quantity} unidades</P>
             <Price>valor: <Span>R${prices}</Span></Price>

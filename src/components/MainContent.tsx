@@ -1,14 +1,13 @@
 'use client'
 
-import React, {useContext} from 'react';
+import React from 'react';
 import styled from "styled-components";
 import Card from './Card';
 import { cellphones } from "../util/cellphones";
-
-import { FilterContext } from '../context/Filter';
+import useCellphone from '@/hooks/useCellphone';
 
 type Props = {
-    brand: string
+
 };
 
 const Main: any = styled.div`
@@ -18,11 +17,12 @@ const Main: any = styled.div`
     padding: 40px;
     flex-wrap: wrap;
     background-color: #00e8e8;
+    min-height: 100vh;
 `;
 
 const MainContent = (props: Props) => {
 
-    const filterContext = useContext(FilterContext) 
+    const { filterContext } = useCellphone()
 
     return (
         <Main>

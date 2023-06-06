@@ -2,8 +2,8 @@ import React, { useContext } from "react"
 import styled from 'styled-components'
 import ButtonFilter from './ButtonFilter'
 import { filteredbrand } from "../util/cellphones"
-import { FilterContext } from '../context/Filter';
 import InputSearch from "./InputSearch";
+import useCellphone from "@/hooks/useCellphone";
 
 type Props = {}
 
@@ -32,12 +32,9 @@ const Options = styled.div`
 
 const Header = (props: Props) => {
 
-    const filterContext = useContext(FilterContext)
-    const { setBrand } = filterContext
+    const { handleFilter, setSugestionVisibility } = useCellphone()
+    
 
-    const handleFilter = (brand: string) => {
-        setBrand(brand)
-    }
     return (
         <Main>
             <LogoContainer>
