@@ -92,7 +92,6 @@ const Header = (props: Props) => {
             </LogoContainer>
             <Options>
                 <FilterBrandsHeader />
-                <ButtonFilter handleFilter={() => handleFilter("all")}>todos</ButtonFilter>
             </Options>
             <InputSearch />
             <Bars onClick={handleShow}>
@@ -101,7 +100,6 @@ const Header = (props: Props) => {
             {showOption ? (
                 <OptionsMobile>
                     <FilterBrandsHeader/> 
-                    <ButtonFilter handleFilter={() => handleFilter("all")}>todos</ButtonFilter>
                 </OptionsMobile>
             ): ""}
 

@@ -36,7 +36,7 @@ const MainContent = (props: Props) => {
                 {searchByButton ? (
                     <CardList onFocus={handleHidde}>
                         {cellphones.map((cellphone: any) => {
-                            if (cellphone.brand === filterContext.brand || filterContext.brand == "all") {
+                            if (cellphone.brand === filterContext?.brand || filterContext?.brand == "all") {
                                 return <div key={cellphone.name}>
                                     <Card brand={cellphone.brand} name={cellphone.name} quantity={cellphone.quantity} prices={cellphone.price} />
                                 </div>
@@ -46,7 +46,7 @@ const MainContent = (props: Props) => {
                 ) : (
                     <CardList>
                         {cellphones.map((cellphone: any) => {
-                            if (cellphone.name === filterContext.cellphoneName) {
+                            if (cellphone.name === filterContext?.cellphoneName) {
                                 return <div key={cellphone.name}>
                                     <Card brand={cellphone.brand} name={cellphone.name} quantity={cellphone.quantity} prices={cellphone.price} />
                                 </div>

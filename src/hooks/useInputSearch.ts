@@ -1,50 +1,52 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import useCellphone from "./useCellphone";
-import { FilterTypeContext } from "../context/filterType"
-import { FilterContext } from '../context/Filter';
-
+import { FilterTypeContext } from "../context/filterType";
+import { FilterContext } from "../context/Filter";
 
 const useInputSearch = () => {
-    
-    const filterContext = useContext(FilterContext)
-    const visibilities = useContext(FilterTypeContext)
-    const { setCellphoneName } = filterContext
-    const { sugestionVisibility, setSugestionVisibility } = visibilities
+    const filterContext = useContext(FilterContext);
+    const visibilities = useContext(FilterTypeContext);
 
-    const { searchByButton, setSearchByButton } = useCellphone()
+    if (!filterContext || !visibilities) {
+        throw new Error('Error: Missing context value');
+    }
+
+    const { setCellphoneName } = filterContext;
+    const { sugestionVisibility, setSugestionVisibility } = visibilities;
+
+    const { searchByButton, setSearchByButton } = useCellphone();
 
     const handleFocus = () => {
         setTimeout(() => {
-            console.log(`o search by ${searchByButton}`)
-        },700)
-    }
+            console.log(`o search by ${searchByButton}`);
+        }, 700);
+    };
 
     const handleType = () => {
-        setSugestionVisibility(true)
-
-    }
+        setSugestionVisibility(true);
+    };
 
     const handleBlur = () => {
-        setTimeout(() => setSugestionVisibility(false), 100 )
-        console.log(`o search by ${searchByButton}`)
-    }
+        setTimeout(() => setSugestionVisibility(false), 100);
+        console.log(`o search by ${searchByButton}`);
+    };
 
     const handleSelectCellphone = (name: string) => {
-        setSearchByButton(false)
-        setCellphoneName(name)
-        console.log(`o nome é ${name}`)
-    }
+        setSearchByButton(false);
+        setCellphoneName(name);
+        console.log(`o nome é ${name}`);
+    };
 
     return {
-        handleBlur, 
-        handleFocus, 
+        handleBlur,
+        handleFocus,
         handleType,
-        handleSelectCellphone, 
-        sugestionVisibility, 
-        setSugestionVisibility, 
-        searchByButton, 
+        handleSelectCellphone,
+        sugestionVisibility,
+        setSugestionVisibility,
+        searchByButton,
         setSearchByButton,
-    }
-}
+    };
+};
 
-export default useInputSearch
+export default useInputSearch;
