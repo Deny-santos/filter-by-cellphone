@@ -8,16 +8,13 @@ const useInputSearch = () => {
     
     const filterContext = useContext(FilterContext)
     const visibilities = useContext(FilterTypeContext)
-    const { cellphoneName, setCellphoneName } = filterContext
+    const { setCellphoneName } = filterContext
     const { sugestionVisibility, setSugestionVisibility } = visibilities
 
     const { searchByButton, setSearchByButton } = useCellphone()
 
-    const [typing, setTyping] = useState("")
-
     const handleFocus = () => {
         setTimeout(() => {
-
             console.log(`o search by ${searchByButton}`)
         },700)
     }
@@ -47,9 +44,6 @@ const useInputSearch = () => {
         setSugestionVisibility, 
         searchByButton, 
         setSearchByButton,
-        typing,
-        setTyping,
-        
     }
 }
 

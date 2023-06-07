@@ -9,3 +9,33 @@
 body {
   background-color: rgb(255, 255, 255);
 }
+
+.options {
+    display: flex;
+    gap: 10px;
+
+    @media screen and (max-width: 900px){
+        display: none;
+    }
+}
+
+.showOption {
+  height: calc(100vh - 90px);
+  width: 100vw;
+
+  @media screen and (max-width: 900px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.93);
+        z-index: 3;
+        position: fixed;
+        top: 100px;
+        height: calc(100vh - 90px);
+        color: white;
+        gap: 10px
+        
+    }
+}
+

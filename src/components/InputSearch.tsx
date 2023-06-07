@@ -34,6 +34,10 @@ const Input = styled.input`
     outline: none;
     color: white;
     height: 40px;
+
+    @media screen and (max-width: 500px) {
+        width: 110px;
+    }
 `
 const InputContainer = styled.div`
     background-color: #313030;
@@ -90,7 +94,7 @@ const InputSearch = (props: Props) => {
             {sugestionVisibility ? (
                 <Sugestion>
                     {name.map((el) => (
-                        <Line onClick={() => handleSelectCellphone(el)}>{el}</Line>
+                        <Line key={el} onClick={() => handleSelectCellphone(el)}>{el}</Line>
                     ))}
                 </Sugestion>
             ): ""}

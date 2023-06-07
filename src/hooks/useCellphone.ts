@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { FilterContext } from '../context/Filter';
 import { FilterTypeContext } from '../context/filterType';
 
@@ -6,7 +6,7 @@ const useCellphone = () => {
 
     const filterContext = useContext(FilterContext)
     const filterType = useContext(FilterTypeContext)
-    const { setBrand, cellphoneName } = filterContext
+    const { setBrand } = filterContext
     const { setSearchByButton, searchByButton, sugestionVisibility, setSugestionVisibility} = filterType
 
 

@@ -1,4 +1,3 @@
-import useCellphone from '@/hooks/useCellphone'
 import React from 'react'
 import styled from "styled-components"
 
