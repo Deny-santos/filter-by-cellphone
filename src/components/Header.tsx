@@ -1,9 +1,7 @@
 'use client'
 
-import React, { useState } from "react"
+import React from "react"
 import styled from 'styled-components'
-import ButtonFilter from './ButtonFilter'
-import { filteredbrand } from "../util/cellphones"
 import InputSearch from "./InputSearch";
 import { FaBars } from "react-icons/fa"
 import FilterBrandsHeader from "./filterBrandsHeader"
@@ -13,10 +11,9 @@ import useBrands from "@/hooks/useBrands"
 type Props = {}
 
 const Bars = styled.span`
-    color: white;
     display: none;
     padding: 0px 20px 0px 10px;
-
+    cursor: pointer;
 
     svg {
         font-size: 32px;
@@ -45,6 +42,7 @@ const Logo = styled.span`
     font-weight: bold;
     padding: 0px 10px;
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
@@ -88,7 +86,7 @@ const Header = (props: Props) => {
     return (
         <Main>
             <LogoContainer>
-                <Logo><span>Deny</span> <span>Tec</span></Logo>
+                <Logo><span>Deny</span><span>Tec</span></Logo>
             </LogoContainer>
             <Options>
                 <FilterBrandsHeader />
