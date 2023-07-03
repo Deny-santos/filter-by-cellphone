@@ -8,7 +8,7 @@ const useCellphone = () => {
 
     if (!filterContext || !filterType) {
         throw new Error('Error: Missing context value');
-    } // sem essa verificação da erro!!
+    }
 
     const { setBrand } = filterContext;
     const { setSearchByButton, searchByButton, sugestionVisibility, setSugestionVisibility } = filterType;

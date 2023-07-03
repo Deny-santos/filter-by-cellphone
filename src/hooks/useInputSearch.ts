@@ -19,7 +19,7 @@ const useInputSearch = () => {
     const handleFocus = () => {
         setTimeout(() => {
             console.log(`o search by ${searchByButton}`);
-        }, 700);
+        }, 100);
     };
 
     const handleType = () => {
@@ -27,13 +27,17 @@ const useInputSearch = () => {
     };
 
     const handleBlur = () => {
-        setTimeout(() => setSugestionVisibility(false), 100);
-        console.log(`o search by ${searchByButton}`);
+        setTimeout(() => setSugestionVisibility(false), 500);
+
     };
 
     const handleSelectCellphone = (name: string) => {
         setSearchByButton(false);
-        setCellphoneName(name);
+        
+        setTimeout(() => {
+            setCellphoneName(name)
+        }, 500);
+
         console.log(`o nome é ${name}`);
     };
 

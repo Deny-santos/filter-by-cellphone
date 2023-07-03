@@ -6,6 +6,7 @@ import Card from './Card';
 import { cellphones } from "../util/cellphones";
 import useCellphone from '@/hooks/useCellphone';
 import useBrands from '@/hooks/useBrands';
+import useInputSearch from '@/hooks/useInputSearch';
 
 type Props = {
 
@@ -45,13 +46,14 @@ const MainContent = (props: Props) => {
                     </CardList>
                 ) : (
                     <CardList>
-                        {cellphones.map((cellphone: any) => {
-                            if (cellphone.name === filterContext?.cellphoneName) {
-                                return <div key={cellphone.name}>
+                        {cellphones.map((cellphone: any) => (
+                            cellphone.name === filterContext.cellphoneName && (
+                                <div key={cellphone.name}>
                                     <Card brand={cellphone.brand} name={cellphone.name} quantity={cellphone.quantity} prices={cellphone.price} />
                                 </div>
-                            }
-                        })}
+
+                            )
+                        ))}
                     </CardList>
                 )}
             </>
